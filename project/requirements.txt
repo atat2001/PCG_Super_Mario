@@ -1,0 +1,5 @@
+numpy>=1.22
+pillow
+matplotlib
+# the benchmark itself, from the copy vendored in this repo (run pip from the project/ folder)
+-e ../pcg_benchmark
