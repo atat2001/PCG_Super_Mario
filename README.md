@@ -2,7 +2,7 @@
 
 This project generates **Super Mario Bros levels** automatically. It compares three AI algorithms: a genetic algorithm, Q-learning and Deep Q-learning (DQN).
 
-A level is a row of **slices** (columns of tiles). The AI has to choose which slice goes in each position. A good level is:
+A level is a row of **slices** (columns of tiles). The agent has to choose which slice goes in each position. A good level is:
 - **playable:** an A* agent can finish it
 - **varied:** it differs from other generated levels
 - **controllable:** it matches a requested target (for example, a number of enemies, jumps and coins)
@@ -13,7 +13,6 @@ A level is a row of **slices** (columns of tiles). The AI has to choose which sl
 - **NumPy** for the numerical work
 - **PyTorch** for the neural network (DQN), with CUDA support when a GPU is available
 - **[PCG Benchmark](pcg_benchmark)** as the game environment. It plays each level with an A* agent and scores it.
-- **Pillow / Matplotlib** for rendering levels and plotting results
 
 ## The algorithms
 
@@ -33,12 +32,12 @@ A **reinforcement learning** method. The AI builds a level one slice at a time, 
 It stores a **Q-table**: for each situation (where it is in the level and the last slice placed), a score for each possible next slice. After each try it updates those scores, so choices that led to good levels get a higher score. It also tries random slices some of the time (**exploration**), so it can discover better options.
 
 ### 3. Deep Q-learning (DQN)
-The same idea as Q-learning, but the table is replaced by a **neural network**. The network takes the current situation as input and outputs a score for every possible slice. It can generalise to situations it has not seen exactly before, which a table cannot do.
+The same idea as Q-learning, but the table is replaced by a **neural network**. The network takes the last n (3) slices, the percentage of level that is floor (due to the quality requirement) and the percentage of level left as input and outputs a score for every possible slice.
 
 To keep training stable it uses:
 - a **replay buffer**, so it learns from a mix of new and older experience
 - a **target network**, a slowly updated copy of the network that gives steadier training targets
-- the **Huber loss** and **gradient clipping**, so a few extreme values don't wreck the training
+- the **Huber loss** and **gradient clipping**, so a few extreme values don't wreck the training, as the last reward of the episode is much bigger.
 
 ## Running it
 
