@@ -1,0 +1,40 @@
+{
+  "dql": {
+    "quality": 1.0,
+    "diversity": 0.9492781377319435,
+    "controlability": 0.6274092969516728,
+    "quality_pass": 1.0,
+    "diversity_pass": 0.75,
+    "controlability_pass": 0.25,
+    "per_level": {
+      "quality": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "diversity": [
+        1.0,
+        1.0,
+        0.7971125509277738,
+        1.0
+      ],
+      "controlability": [
+        1.0,
+        0.083333333125,
+        0.7222222221296297,
+        0.7040816325520617
+      ]
+    },
+    "mean_time": 104.74911552667618,
+    "mean_iterations": 100.0
+  },
+  "_config": {
+    "problem": "smb-small-v0",
+    "runs": 4,
+    "steps": 100,
+    "seed": 1,
+    "early_stop": false,
+    "gen_args": {}
+  }
+}

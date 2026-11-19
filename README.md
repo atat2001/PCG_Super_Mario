@@ -50,6 +50,16 @@ python evaluate.py results -g genetic q dql -n 16 -s 400 --seed 1
 
 `-g` chooses the algorithms, `-n` the number of runs, and `-s` the number of steps per run. The results are written to the `results/` folder.
 
+## Results
+
+Mean scores over 16 levels per algorithm.
+
+| Algorithm | Quality | Diversity | Controllability |
+|---|---|---|---|
+| Genetic algorithm | 1.000 | 1.000 | 0.973 |
+| Q-learning | 1.000 | 0.934 | 0.685 |
+| Deep Q-learning | 1.000 | 0.851 | 0.486 |
+
 ## Project layout
 
 ```
